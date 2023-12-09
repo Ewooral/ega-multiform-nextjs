@@ -23,10 +23,12 @@ export interface RegistrationState {
     personalInfo: PersonalInfo
     businessInfo: BusinessInfo
     customerSixDigitPIN: string;
+    currentStep: number;
+    setCurrentStep: (step: number) => void;
     setEmailAddress: UseFormSetValue<any>
     setOtpValue: UseFormSetValue<any>
     setPersonalInfo: (info: Partial<PersonalInfo>) => void;
     setBusinessInfo: (info: Partial<BusinessInfo>) => void;
     setCustomerSixDigitPIN: UseFormSetValue<any>
-    reset: () => void;
+    resetStepper: () => void;
 }
