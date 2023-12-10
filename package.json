@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
     "clsx": "^2.0.0",
+    "framer-motion": "^10.16.16",
     "google-protobuf": "^3.21.2",
     "grpc-web": "^1.5.0",
     "grpc_tools_node_protoc_ts": "^5.3.3",
@@ -23,6 +24,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
+    "zod": "link:@hookform/resolvers/zod",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

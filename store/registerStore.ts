@@ -1,6 +1,11 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { RegistrationState } from '@/types/registrationTypes';
+import {bgColorClasses,colorClasses,fontSizeClasses,paddingYClasses,paddingXClasses,marginYClasses,marginXClasses,borderRadiusClasses,borderClasses,
+    shadowClasses,widthClasses,heightClasses,flexClasses,flexWrapClasses,flexDirClasses,justifyClasses,alignClasses,textAlignClasses,
+    textClasses} from '@/data/stylesSettings';
+
+
 
 
 //@ts-ignore
@@ -42,6 +47,28 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
     //Step 6: Current Step
     currentStep: 0,
     setCurrentStep: (step: number) => set({currentStep: step}),
+
+    
+    // COLORS SETTINGS
+
+    // background color
+    backgroundColor: bgColorClasses[0],
+    setBackgroundColor: (value: string) => set({backgroundColor: value}),
+
+    // text color
+    color: colorClasses[0],
+    setColor: (color: string) => set({color: color}),
+
+    // card color
+    cardColor: bgColorClasses[0],
+    setCardColor: (value: string) => set({color: value}),
+
+    // button color
+    buttonColor: bgColorClasses[0],
+    setButtonColor: (value: string) => set({ buttonColor: value }),
+    
+    fontSize: fontSizeClasses[0],
+    setFontSize: (size) => set({ fontSize: size }),
 
     // Function to reset the store
     resetStepper: () => set({

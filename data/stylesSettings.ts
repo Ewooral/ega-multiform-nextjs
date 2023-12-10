@@ -1,0 +1,20 @@
+export const bgColorClasses = ['bg-[#02044a]','bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 'bg-purple-500'];
+export const fontSizeClasses = ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl'];
+export const paddingYClasses = ['py-1', 'py-2', 'py-3', 'py-4', 'py-5'];
+export const paddingXClasses = ['px-1', 'px-2', 'px-3', 'px-4', 'px-5'];
+export const marginYClasses = ['my-1', 'my-2', 'my-3', 'my-4', 'my-5'];
+export const marginXClasses = ['mx-1', 'mx-2', 'mx-3', 'mx-4', 'mx-5'];
+export const borderRadiusClasses = ['rounded-none', 'rounded-sm', 'rounded', 'rounded-md', 'rounded-lg'];
+export const borderClasses = ['border-0', 'border', 'border-2', 'border-4', 'border-8'];
+export const shadowClasses = ['shadow-none', 'shadow-sm', 'shadow', 'shadow-md', 'shadow-lg'];
+export const widthClasses = ['w-1/12', 'w-2/12', 'w-3/12', 'w-4/12', 'w-5/12', 'w-6/12', 'w-7/12', 'w-8/12', 'w-9/12', 'w-10/12', 'w-11/12', 'w-full'];
+export const heightClasses = ['h-1/12', 'h-2/12', 'h-3/12', 'h-4/12', 'h-5/12', 'h-6/12', 'h-7/12', 'h-8/12', 'h-9/12', 'h-10/12', 'h-11/12', 'h-full'];
+export const flexClasses = ['flex-1', 'flex-auto', 'flex-initial', 'flex-none'];
+export const flexWrapClasses = ['flex-wrap', 'flex-nowrap', 'flex-wrap-reverse'];
+export const flexDirClasses = ['flex-row', 'flex-row-reverse', 'flex-col', 'flex-col-reverse'];
+export const justifyClasses = ['justify-start', 'justify-end', 'justify-center', 'justify-between', 'justify-around'];
+export const alignClasses = ['items-start', 'items-end', 'items-center', 'items-baseline', 'items-stretch'];
+export const textAlignClasses = ['text-left', 'text-center', 'text-right'];
+export const textClasses = ['text-left', 'text-center', 'text-right'];
+export const colorClasses = ['text-white', 'text-red-500', 'text-blue-500', 'text-green-500', 'text-yellow-500', 'text-purple-500'];
+
