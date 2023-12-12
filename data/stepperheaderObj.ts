@@ -3,7 +3,7 @@ import FingerprintOutlinedIcon from '@mui/icons-material/FingerprintOutlined';
 import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
 import ContactMailOutlinedIcon from '@mui/icons-material/ContactMailOutlined';
 import PasswordOutlinedIcon from '@mui/icons-material/PasswordOutlined';
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
 
 
@@ -41,16 +41,16 @@ export const stepHeadObj = [
     },
     {
         step: 5,
-        title: 'Submit your details',
-        description: 'Review your details',
-        imgSrc: SendOutlinedIcon
-    },
-
-    {
-        step: 6,
-        title: 'message',
+        title: 'Review your details',
         description: 'Review your details',
         imgSrc: DoneAllOutlinedIcon
-    }
+    },
+
+    // {
+    //     step: 6,
+    //     title: 'message',
+    //     description: 'Review your details',
+    //     imgSrc: ThumbUpAltOutlinedIcon
+    // }
 
 ]

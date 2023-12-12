@@ -5,10 +5,10 @@ ROOT_DIR=$(git rev-parse --show-toplevel)
 #PROTOC_GEN_TS_PATH="${ROOT_DIR}/node_modules/.bin/protoc-gen-ts"
 
 # Directory holding all .proto files
-SRC_DIR="${ROOT_DIR}/egatekui/proto/raw"
+SRC_DIR="${ROOT_DIR}/proto/raw"
 
 # Directory to write generated code (.d.ts files)
-OUT_DIR="${ROOT_DIR}/egatekui/proto/generated"
+OUT_DIR="${ROOT_DIR}/proto/generated"
 
 # Clean all existing generated files
 rm -r "${OUT_DIR}"

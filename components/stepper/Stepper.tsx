@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
-import useRegistrationStore from "@/store/registerStore";
 import clsx from "clsx";
 import RenderActiveStep from "./RenderActiveStep";
 import dynamic from "next/dynamic";
 
+
 const Stepper = () => {
+  
   /* ? The issue is related to the server-side rendering (SSR) and client-side rendering mismatch. 
    ! The server renders with an initial state, and then when the client loads, it updates the state, causing a mismatch.
 
@@ -20,9 +21,10 @@ const Stepper = () => {
     ssr: false,
   });
 
+
   return (
     <>
-      <div className="grid grid-cols-3 grid-rows-1 gap-4">
+      <div className="grid grid-cols-3 grid-rows-1 gap-4" >
         {/* Header */}
         <div className={clsx`col-span-3 bg-[#02044a]`}>
           <div className={clsx`grid w-full grid-cols-6 bg-[#02044a]`}>
@@ -35,7 +37,7 @@ const Stepper = () => {
             <div className={clsx`h-full col-span-3 text-white flex flex-col justify-between items-start p-[3rem]`}>
               <RenderActiveStep />
             </div>
-            <div className={clsx`h-full col-span-1 border-l-2 border-[#66339971]`}>Column 3</div>
+            <div className={clsx`h-full col-span-1 border-l-2 border-[#66339971]`}>Settings</div>
           </div>
         </div>
         {/* <Settings /> */}

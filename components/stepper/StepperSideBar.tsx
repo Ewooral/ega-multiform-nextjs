@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { stepHeadObj } from "@/data/stepperheaderObj";
 import useRegistrationStore from "@/store/registerStore";
 import BlinkingLight from "../BlinkingLight";
+import { StaticLight } from "../StaticLight";
 
 const StepperSideBar = () => {
   const { currentStep, setCurrentStep } = useRegistrationStore();
@@ -10,7 +11,10 @@ const StepperSideBar = () => {
     <div className="">
       {stepHeadObj.map((item, key) => {
         return (
-          <div key={key} className="flex flex-col items-end p-2 md:mr-[3rem] mb-[-2rem]">
+          <div
+            key={key}
+            className="flex flex-col items-end p-2 md:mr-[3rem] mb-[-2rem]"
+          >
             <article className="flex items-center justify-center gap-8 mb-1 text-white">
               {/*
                * File: StepperSideBar.tsx
@@ -29,9 +33,17 @@ const StepperSideBar = () => {
               </p>
 
               <p className="flex items-baseline content-end self-end justify-center">
-                <span className="flex items-center w-12 h-12 bg-[#8687a8] rounded-full justify-evenly my-3 mx-auto">
+                <span
+                  className={`flex items-center w-12 h-12 rounded-full justify-evenly my-3 mx-auto ${
+                    key < currentStep
+                      ? "bg-green-800 border-white border-4"
+                      : key === currentStep
+                      ? "bg-red-500"
+                      : "bg-[#8687a8]"
+                  }`}
+                >
                   {item && item.imgSrc && (
-                    <item.imgSrc className="w-[30px] h-[30px]" />
+                    <item.imgSrc className="w-[20px] h-[20px]" />
                   )}
                 </span>
               </p>
@@ -57,9 +69,28 @@ const StepperSideBar = () => {
             </div>
 
             {/* ...............BLINKING LIGHT EFFECT................. */}
-            <section className="absolute top-[20%]">
-            {currentStep === key && currentStep < stepHeadObj.length - 1 && <BlinkingLight />}
-              </section>
+            <section className="absolute left-[32.9%]  mt-[2rem]">
+              {currentStep === key && currentStep < stepHeadObj.length && (
+                <BlinkingLight />
+              )}
+              {currentStep > key && currentStep < stepHeadObj.length && (
+                <StaticLight />
+              )}
+            </section>
+
+            {/* ..................COMMENTS............................ */}
+            {/* 
+            In this code, currentStep === key ? 'border-red-500' : currentStep > key ? 'border-[#23b732]' : 'border-[#66339973]' 
+            applies the red color to the current step, the green color to the visited steps, 
+            and the gray color to the unvisited steps. 
+            {currentStep === key && currentStep < stepHeadObj.length - 1 && <BlinkingLight />} and 
+            {currentStep > key && currentStep < stepHeadObj.length - 1 && <BlinkingLight />} 
+            render the BlinkingLight component when the current step matches the key or the 
+            current step is greater than the key, and the current step is less than the length
+             of stepHeadObj minus 1. This ensures that the BlinkingLight component is unmounted when it 
+             gets to the last step.
+            </p> 
+            */}
           </div>
         );
       })}

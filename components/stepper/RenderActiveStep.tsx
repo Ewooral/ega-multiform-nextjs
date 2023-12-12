@@ -7,32 +7,39 @@ import SixDigitPinStep from '@/components/stepper/forms/SixDigitPinStep';
 import SubmitStep from '@/components/stepper/forms/SubmitStep';
 import ConfirmationStep from '@/components/stepper/forms/ConfirmationStep';
 import StepperButton from "./StepperButton";
-import { useEffect } from "react";
+import { useStepperForm } from "@/hooks/useStepperForm";
+import LoadingSpinner from "../LoadingSpinner";
+
+
 const RenderActiveStep = ()  => {
 
      // get the current step state from the store and set it
-    const {currentStep, setCurrentStep} = useRegistrationStore();
-    useEffect(() => {
-        setCurrentStep(0)
+    const {currentStep, setCurrentStep, setIsLoading, isLoading} = useRegistrationStore();
 
-    }, [])
+    // get the useForm methods from the custom hook
+    const FormMethods = useStepperForm(); 
+
     
     function getStepCompoent() {
+        //Render a loading state
+        // if(isLoading) return <LoadingSpinner />
+
+        if(isLoading) return <h1>Loading...</h1>
+
+        // switch statement to render the current step
     switch(currentStep) {
         case 0:
-            return <EmailStep /> 
+            return <EmailStep formMethods={FormMethods} /> 
         case 1:
-            return <VerifyOtpStep />
+            return <VerifyOtpStep formMethods={FormMethods} />
         case 2:
-            return <PersonalInfoStep />
+            return <PersonalInfoStep formMethods={FormMethods} />
         case 3:
-            return <BusinessInfoStep />
+            return <BusinessInfoStep formMethods={FormMethods} />
         case 4:
-            return <SixDigitPinStep />
+            return <SixDigitPinStep formMethods={FormMethods} />
         case 5:
             return <SubmitStep />
-        case 6:
-            return <ConfirmationStep />
         default:
             return "Hello, World!"
         
@@ -42,9 +49,10 @@ const RenderActiveStep = ()  => {
     return (
         <>
         {/* RENDER ACTIVE FORM STEP */}
+        
         {getStepCompoent()}
 
-        <StepperButton  currentStep={currentStep} setCurrentStep={setCurrentStep}/>
+        <StepperButton  currentStep={currentStep} setCurrentStep={setCurrentStep} formMethods={FormMethods} />
         </>
 
     )

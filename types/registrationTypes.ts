@@ -1,11 +1,10 @@
-import { UseFormSetValue } from 'react-hook-form'
 
 interface PersonalInfo{
     firstName: string;
     lastName: string;
     password: string
     mobileNumber: string;
-    personalBusinessGroupValue: 2,
+    personalBusinessGroupValue: number,
     countryCode: string
 }
 
@@ -17,6 +16,15 @@ interface BusinessInfo{
     mobileOrWeb: string;
 }
 
+interface serverResponseGenerateOTP{
+    issuccess: boolean;
+    messagesuccessfulorfailed: string;
+    message: string;
+    registrationerrorcode: string;
+
+
+}
+
 
 
 export interface RegistrationState {
@@ -26,75 +34,34 @@ export interface RegistrationState {
     businessInfo: BusinessInfo
     customerSixDigitPIN: string;
     currentStep: number;
-    setCurrentStep: (step: number) => void;
-    setEmailAddress: UseFormSetValue<any>
-    setOtpValue: UseFormSetValue<any>
-    setPersonalInfo: (info: Partial<PersonalInfo>) => void;
-    setBusinessInfo: (info: Partial<BusinessInfo>) => void;
-    setCustomerSixDigitPIN: UseFormSetValue<any>
-    backgroundColor: string;
-    setBackgroundColor: UseFormSetValue<any>
-    color: string;  
-    setColor: UseFormSetValue<any>
-
-    buttonColor: string;
-    setButtonColor: UseFormSetValue<any>
+    thereAreErrorsStep0: boolean;
+    thereAreErrorsStep1: boolean;
+    thereAreErrorsStep2: boolean;
+    serverResponseGenerateOTP: null | serverResponseGenerateOTP;
+    isLoading: boolean;
+    setIsLoading: (value: boolean) => void;
+    setSeverResponseGenerateOTP: (value: serverResponseGenerateOTP) => void;
+    setThereAreErrorsStep0: (value: boolean) => void;
+    setThereAreErrorsStep1: (value: boolean) => void;
+    setThereAreErrorsStep2: (value: boolean) => void;
+    setCurrentStep?: (step: number) => void;
+    setEmailAddress: (value: string) => void; 
+    setOtpValue:  (value: string) => void;
+    setPersonalInfo: (info: PersonalInfo) => void;
+    setBusinessInfo: (info: BusinessInfo) => void; 
+    setCustomerSixDigitPIN: (value: string) => void;
     
-    fontSize: string;
-    setFontSize: UseFormSetValue<any>
-    paddingY: string;
-    setPaddingY: UseFormSetValue<any>
-    paddingX: string;
-    setPaddingX: UseFormSetValue<any>
-    marginY: string;
-    setMarginY: UseFormSetValue<any>
-    marginX: string;
-    setMarginX: UseFormSetValue<any>
-    borderRadius: string;
-    setBorderRadius: UseFormSetValue<any>
-    border: string;
-    setBorder: UseFormSetValue<any>
-    shadow: string;
-    setShadow: UseFormSetValue<any>
-    width: string;
-    setWidth: UseFormSetValue<any>
-    height: string;
-    setHeight: UseFormSetValue<any>
-    flex: string;
-    setFlex: UseFormSetValue<any>
-    flexWrap: string;
-    setFlexWrap: UseFormSetValue<any>
-    flexDir: string;
-    setFlexDir: UseFormSetValue<any>
-    justify: string;
-    setJustify: UseFormSetValue<any>
-    align: string;
-    setAlign: UseFormSetValue<any>
-    textAlign: string;
-    setTextAlign: UseFormSetValue<any>
-    text: string;
-    setText: UseFormSetValue<any>
-    colorClasses: string[];
-    
-    fontSizeClasses: string[];
-    paddingYClasses: string[];
-    paddingXClasses: string[];
-    marginYClasses: string[];
-    marginXClasses: string[];
-    borderRadiusClasses: string[];
-    borderClasses: string[];
-    shadowClasses: string[];
-    widthClasses: string[];
-    heightClasses: string[];
-    flexClasses: string[];
-    flexWrapClasses: string[];
-    flexDirClasses: string[];
-    justifyClasses: string[];
-    alignClasses: string[];
-    textAlignClasses: string[];
-    textClasses: string[];
-    resetStepper: () => void;
+    resetStepper?: () => void;
     
 }
 
 
+export interface StepProps {
+    formMethods: any; 
+  }
+
+  
+export type OmitSomeTypes = Omit<RegistrationState, 'setPersonalInfo' | 
+'setBusinessInfo' | 'setOtpValue' | 'setCustomerSixDigitPIN' 
+| 'setEmailAddress' | 'resetStepper' | 'otpValue' | 'setCurrentStep' |
+ 'emailAddress' | 'personalInfo' | 'businessInfo' | 'customerSixDigitPIN'>;

@@ -1,11 +1,6 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { RegistrationState } from '@/types/registrationTypes';
-import {bgColorClasses,colorClasses,fontSizeClasses,paddingYClasses,paddingXClasses,marginYClasses,marginXClasses,borderRadiusClasses,borderClasses,
-    shadowClasses,widthClasses,heightClasses,flexClasses,flexWrapClasses,flexDirClasses,justifyClasses,alignClasses,textAlignClasses,
-    textClasses} from '@/data/stylesSettings';
-
-
 
 
 //@ts-ignore
@@ -39,6 +34,10 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
         mobileOrWeb: ''
     },
 
+    // Loading
+    isLoading: false,
+    setIsLoading: (value: boolean) => set({isLoading: value}),
+
     setBusinessInfo: (info) => set((state) => ({businessInfo: {...state.businessInfo, ...info}})),
     //Step 5: PIN
     customerSixDigitPIN: '',
@@ -48,27 +47,28 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
     currentStep: 0,
     setCurrentStep: (step: number) => set({currentStep: step}),
 
+    //Step 7: Errors
+    thereAreErrorsStep0: false,
+    setThereAreErrorsStep0: (value: boolean) => set({thereAreErrorsStep0: value}),
+
+    thereAreErrorsStep1: false,
+    setThereAreErrorsStep1: (value: boolean) => set({thereAreErrorsStep1: value}),
+
+    thereAreErrorsStep2: false,
+    setThereAreErrorsStep2: (value: boolean) => set({thereAreErrorsStep2: value}),
+
     
-    // COLORS SETTINGS
+    // Server Response
+    serverResponseGenerateOTP: {
+        issuccess: false,
+        messagesuccessfulorfailed: '',
+        message: '',
+        registrationerrorcode:''
+    },
 
-    // background color
-    backgroundColor: bgColorClasses[0],
-    setBackgroundColor: (value: string) => set({backgroundColor: value}),
+    setSeverResponseGenerateOTP: (response) => set(() => ({ serverResponseGenerateOTP: response })),
 
-    // text color
-    color: colorClasses[0],
-    setColor: (color: string) => set({color: color}),
 
-    // card color
-    cardColor: bgColorClasses[0],
-    setCardColor: (value: string) => set({color: value}),
-
-    // button color
-    buttonColor: bgColorClasses[0],
-    setButtonColor: (value: string) => set({ buttonColor: value }),
-    
-    fontSize: fontSizeClasses[0],
-    setFontSize: (size) => set({ fontSize: size }),
 
     // Function to reset the store
     resetStepper: () => set({
