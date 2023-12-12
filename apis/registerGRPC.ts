@@ -7,7 +7,7 @@ const client = new CustomerAccountClient(API_URL)
 
 export const registerGRPC = (data: any) => {
     const request = new CustomerAccountMessage()
-    console.log("Registration Data: ", data.toObject())
+    console.log("Registration Data: ", data)
     request.setCountrycode(data.personalInfo.countryCode)
     request.setEmailaddress(data.emailAddress)
     request.setLanguageid('en')
@@ -22,7 +22,10 @@ export const registerGRPC = (data: any) => {
     request.setMobileorweb(data.businessInfo.mobileOrWeb)
     request.setMobilenodialcode(data.businessInfo.mobileNoDialCode)
     request.setCustomersixdigitpin(data.customerSixDigitPIN)
-    request.setOtpvalue(data.otpValue)
+    request.setOtpvalue(data.otp)
+
+
+    console.log("SERVER REQUEST: ", request.toObject())
 
 
 
@@ -38,24 +41,6 @@ export const registerGRPC = (data: any) => {
         reject(err);
       } else {
         resolve(response.toObject());
-        // const obj = response.toObject();
-        // console.log("Response", obj)
-        // if (obj.issuccess && obj.messagesuccessfulorfailed === 'SUCCESSFUL') {
-        //     setServerResponse({
-        //         issuccess: true,
-        //         messagesuccessfulorfailed: 'SUCCESSFUL',
-        //         message: obj.message,
-        //     })
-            
-        //   console.log('Congratulations, you just registered Successfully');
-        // }
-        // else{
-        //     setServerResponse({
-        //         issuccess: false,
-        //         messagesuccessfulorfailed: 'REGISTRATION FAILED',
-        //         message: obj.message,
-        //     })
-        // }
       }
     });
   });

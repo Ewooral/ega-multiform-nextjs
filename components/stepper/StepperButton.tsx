@@ -162,40 +162,64 @@ const StepperButton = ({
         if (currentStep === 3) {
           setCurrentStep(currentStep + 1);
         }
-        setCurrentStep(currentStep + 1);
+        // setCurrentStep(currentStep + 1);
 
         // data
         const data = {
+          emailAddress,
+          otp,
           personalInfo,
           businessInfo,
           customerSixDigitPIN,
         };
 
-        // Six Digit Pin
+        // // Six Digit Pin
+        // if (currentStep === 4) {
+        //   try {
+        //     const response: serverResponseGenerateOTPS = (await registerGRPC(
+        //       data
+        //     )) as serverResponseGenerateOTPS;
+        //     if (
+        //       response &&
+        //       !response.issuccess              
+        //     ) {
+        //       setSeverResponseGenerateOTP(response);
+        //       console.log("STORE RESPONSE: ", serverResponseGenerateOTP);
+        //       console.log("RESPONSESSSS: ", response);
+        //       setIsLoading(false);
+        //       return;
+        //     }
+        //     else{
+        //       setSeverResponseGenerateOTP(response);
+        //       setCurrentStep(currentStep + 1);
+        //     }
+            
+        //   } catch (err: any) {
+        //     console.error(err.message)
+        //     setIsLoading(false)
+        //     return
+        //   }
+        // }
+        //SUBMIT FORM
         if (currentStep === 4) {
           try {
             const response: serverResponseGenerateOTPS = (await registerGRPC(
               data
             )) as serverResponseGenerateOTPS;
-            if (
-              response &&
-              !response.issuccess              
-            ) {
+            console.log("RESPONSESSSS: ", response);
+            if (response && !response.issuccess) {
               setSeverResponseGenerateOTP(response);
-              console.log("STORE RESPONSE: ", serverResponseGenerateOTP);
               console.log("RESPONSESSSS: ", response);
               setIsLoading(false);
               return;
-            }
-            else{
+            } else {
               setSeverResponseGenerateOTP(response);
               setCurrentStep(currentStep + 1);
             }
-            
-          } catch (err: any) {
-            console.error(err.message)
-            setIsLoading(false)
-            return
+          } catch (err) {
+            console.error("An error occurred:", err);
+            setIsLoading(false);
+            return; // Stop execution if an error occurs
           }
         }
 
@@ -205,6 +229,7 @@ const StepperButton = ({
             resetStepper();
           }
         }
+
         setIsLoading(false);
       }
     } catch (err: any) {

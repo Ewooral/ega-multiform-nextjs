@@ -41,8 +41,8 @@ export const stepHeadObj = [
     },
     {
         step: 5,
-        title: 'Review your details',
-        description: 'Review your details',
+        title: 'Reset your form',
+        description: 'Reset your form',
         imgSrc: DoneAllOutlinedIcon
     },
 
