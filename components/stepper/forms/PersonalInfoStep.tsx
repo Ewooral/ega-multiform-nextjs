@@ -162,7 +162,7 @@ const PersonalInfoStep: React.FC<StepProps> = ({
           />
         </div>
         {errors.password && (
-          <span className="text-red-500">{errors.password.message}</span>
+          <span className="text-red-500 bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">{errors.password.message}</span>
         )}
       </section>
 
@@ -190,13 +190,13 @@ const PersonalInfoStep: React.FC<StepProps> = ({
         </div>
       </section>
       {errors.firstName && (
-        <span className="text-red-500">
+        <span className="text-red-500 bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">
           {errors.firstName.message}
           <br />
         </span>
       )}
       {errors.lastName && (
-        <span className="text-red-500">{errors.lastName.message}</span>
+        <span className="text-red-500 bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">{errors.lastName.message}</span>
       )}
 
       {/* .............................COUNTRY CODE AND MOBILE NUMBER....................................... */}
@@ -232,7 +232,7 @@ const PersonalInfoStep: React.FC<StepProps> = ({
           </div>
         </div>{" "}
         {errors.country && (
-          <span className="text-red-500">{errors.country.message}</span>
+          <span className="text-red-500 bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">{errors.country.message}</span>
         )}
         <div className="flex items-center justify-center w-full border border-solid border-[rebeccapurple] p-[1rem] rounded-lg">
           {/* ..............COMMENT................ */}
@@ -269,7 +269,7 @@ const PersonalInfoStep: React.FC<StepProps> = ({
         </div>
       </section>
       {errors.mobileNumber && (
-        <span className="text-red-500">{errors.mobileNumber.message}</span>
+        <span className="text-red-500 bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">{errors.mobileNumber.message}</span>
       )}
     </form>
   );

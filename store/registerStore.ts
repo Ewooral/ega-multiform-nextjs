@@ -93,6 +93,17 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
 
         currentStep: 0,
 
+        thereAreErrorsStep0: false,
+        thereAreErrorsStep1: false,
+        thereAreErrorsStep2: false,
+
+        serverResponseGenerateOTP: {
+            issuccess: false,
+            messagesuccessfulorfailed: '',
+            message: '',
+            registrationerrorcode:''
+        },
+
     })
 }), {
     name: 'registration-store',

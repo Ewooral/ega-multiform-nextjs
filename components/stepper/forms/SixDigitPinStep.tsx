@@ -69,7 +69,7 @@ const SixDigitPinStep: React.FC<StepProps> = ({
           />
         </div>
         {errors.customerSixDigitPIN && (
-          <span className="text-red-500">{errors.customerSixDigitPIN.message}</span>
+          <span className="text-red-500  bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">{errors.customerSixDigitPIN.message}</span>
         )}
       </section>
 

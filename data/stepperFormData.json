@@ -1,0 +1,154 @@
+// {
+//    "mobileNumber": "233264851002",
+//    "emailAddress": "boahen.cos@gmail.com",
+//    "firstName": "Elijah",
+//    "lastName": "Boahen",
+//    "password": "eli@boah",
+//    "personalBusinessGroupValue": 2,
+//    "businessName": "EgaNow",
+//    "countryCode": "GH0233",
+//    "mobileOrWeb": "WEB",
+//    "languageId": "en",
+//    "customerSixDigitPIN": "224466",
+//    "countryCodeForFirstEganowWallet": "GH0233",
+//    "otpvalue": "680563",
+//    "businessContactPersonMobileNumber": "233264851002",
+//    "mobileNoDialCode": "+233",
+//    "securityQuestionOne": "Are you a Christian?",
+//    "securityAnswerOne": "YES",
+//    "securityQuestionTwo": "Where do you fellowship",
+//    "securityAnswerTwo": "Church of Pentecost"
+// }
+
+
+// { 
+//    "businessContactPersonMobileNumber": "233546313876",
+//    "BusinessName": "Teksol",
+//    "countryCode": "GH0233",
+//    "countryCodeForFirstEganowWallet": "GH0233",
+//    "customerSixDigitPIN": "123456",
+//    "emailAddress": "fixybugs@gmail.com",
+//    "firstName": "Bugs",
+//    "languageId": "en",
+//    "lastName": "Fixy",
+//    "mobileNoDialCode": "+233",
+//    "mobileNumber": "233546313876",
+//    "mobileOrWeb": "WEB",
+//    "otpvalue": "894417",
+//    "password": "eli@boaH",
+//    "PersonalBusinessGroupValue": 2
+// }
+// 0: "233546313876"
+// ​​
+// 1: undefined
+// ​​
+// 2: "Bugs"
+// ​​
+// 3: "Fixy"
+// ​​
+// 4: "eli@boaH"
+// ​​
+// 5: 2
+// ​​
+// 6: "Teksol"
+// ​​
+// 7: "GH0233"
+// ​​
+// 8: "web"
+// ​​
+// 9: "en"
+// ​​
+// 21: "123456"
+// ​​
+// 22: "GH0233"
+// ​​
+// 23: undefined
+// ​​
+// 24: "233546313876"
+// ​​
+// 25: "+233"
+
+// businesscontactpersonmobilenumber: "233546313876"
+// ​
+// businessname: "Teksol"
+// ​
+// countrycode: "GH0233"
+// ​
+// countrycodeforfirsteganowwallet: "GH0233"
+// ​
+// customersixdigitpin: "123456"
+// ​
+// emailaddress: ""
+// ​
+// firstname: "Bugs"
+// ​
+// languageid: "en"
+// ​
+// lastname: "Fixy"
+// ​
+// mobilenodialcode: "+233"
+// ​
+// mobilenumber: "233546313876"
+// ​
+// mobileorweb: "web"
+// ​
+// otpvalue: ""
+// ​
+// password: "eli@boaH"
+// ​
+// personalbusinessgroupvalue: 2
+
+
+
+
+
+// RESPONSESSSS:  
+// appupdaterequirementstatus: ""
+// ​
+// businessname: "Teksol"
+// ​
+// countrycode: "GH0233"
+// ​
+// customerid: "fspoon22@gmail.com"
+// ​
+// customerprofilepicimageurl: ""
+// ​
+// emailaddress: "fspoon22@gmail.com"
+// ​
+// firstname: "Bugs"
+// ​
+// issuccess: true
+// ​
+// kycdataenc: "O9ndITlpaRPqAF4EyVzXvV9feepcVq0jA7nVcWy1rBfzoC8EQFJaLCZzlbDlQD7Cu7q22+kj5t5LdARd8uwYLbc5Zz6cnkNuDhKZ1KakBPk="
+// ​
+// languageid: "en"
+// ​
+// lastname: "Fixy"
+// ​
+// loginerrorcode: ""
+// ​
+// message: "Process successful"
+// ​
+// messagesuccessfulorfailed: "SUCCESSFUL"
+// ​
+// mobilenumber: "233264851002"
+// ​
+// operatingcountryyesno: ""
+// ​
+// personalbusinessgroup: "BUSINESS"
+// ​
+// personalbusinessgroupvalue: 2
+// ​
+// userjwttoken: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImZzcG9vbjIyQGdtYWlsLmNvbSIsImNlcnRzZXJpYWxudW1iZXIiOiIwMjMzMjAyMzM0NjAwMDAwMDAwMiIsImVtYWlsIjoiZnNwb29uMjJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbW9iaWxlcGhvbmUiOiIiLCJnaXZlbl9uYW1lIjoiQnVncyIsImZhbWlseV9uYW1lIjoiRml4eSIsIm5iZiI6MTcwMjM3MjY1MywiZXhwIjoxNzAyMzk0MjUzLCJpYXQiOjE3MDIzNzI2NTN9.a2R5CLksp75QDXb4aPFP0tXUg7xhxjKA_pluqFknkKN1MQgWxVFDla6HmV3KnKenzQ4GzfHf22KrLvinBC6jOA"
+
+
+
+// width: 100%;
+//   padding: 3rem;
+//   margin-top: 2rem;
+//   margin-bottom: 2rem;
+
+//   font-size: 12px;
+//   background: #ff00004f;
+//   padding: 4px;
+//   border-radius: 7px;

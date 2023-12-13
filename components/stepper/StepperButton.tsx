@@ -140,6 +140,11 @@ const StepperButton = ({
             if (response && !response.issuccess) {
               setSeverResponseGenerateOTP(response);
               console.log("RESPONSESSSS: ", response);
+              if(resetStepper){
+                console.log("Calling resetStepper");
+                resetStepper();
+                console.log("reset successful")
+              }
               setIsLoading(false);
               return;
             } else {
@@ -173,33 +178,6 @@ const StepperButton = ({
           customerSixDigitPIN,
         };
 
-        // // Six Digit Pin
-        // if (currentStep === 4) {
-        //   try {
-        //     const response: serverResponseGenerateOTPS = (await registerGRPC(
-        //       data
-        //     )) as serverResponseGenerateOTPS;
-        //     if (
-        //       response &&
-        //       !response.issuccess              
-        //     ) {
-        //       setSeverResponseGenerateOTP(response);
-        //       console.log("STORE RESPONSE: ", serverResponseGenerateOTP);
-        //       console.log("RESPONSESSSS: ", response);
-        //       setIsLoading(false);
-        //       return;
-        //     }
-        //     else{
-        //       setSeverResponseGenerateOTP(response);
-        //       setCurrentStep(currentStep + 1);
-        //     }
-            
-        //   } catch (err: any) {
-        //     console.error(err.message)
-        //     setIsLoading(false)
-        //     return
-        //   }
-        // }
         //SUBMIT FORM
         if (currentStep === 4) {
           try {
@@ -222,6 +200,9 @@ const StepperButton = ({
             return; // Stop execution if an error occurs
           }
         }
+
+
+     
 
         //Reset form
         if (currentStep === 5) {

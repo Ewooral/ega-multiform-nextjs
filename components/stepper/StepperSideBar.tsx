@@ -39,6 +39,7 @@ const StepperSideBar = () => {
                       ? "bg-green-800 border-white border-4"
                       : key === currentStep
                       ? "bg-red-500"
+                      : currentStep === stepHeadObj.length - 1 ? "bg-green-800"
                       : "bg-[#8687a8]"
                   }`}
                 >

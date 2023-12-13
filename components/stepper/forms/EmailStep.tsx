@@ -51,8 +51,8 @@ const EmailStep:React.FC<StepProps> = ({formMethods}) => {
             {...register("emailAddress", {required: true})}
           />
         </div>
-        {errors.emailAddress && <span className="text-[#ff6161]">{errors.emailAddress.message}</span>}
-        {watchEmailAddress === "" && <span className="text-[#ff6161]"> Email field cannot be empty!</span>}
+        {watchEmailAddress && errors.emailAddress && <span className="text-[#ff6161] bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">{errors.emailAddress.message}</span>}
+        {watchEmailAddress === "" && <span className="text-[#ff6161] bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]"> Email field cannot be empty!</span>}
         </section>
         
       </form>
