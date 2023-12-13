@@ -6,6 +6,7 @@ import { StepProps } from "@/types/registrationTypes";
 import useRegistrationStore from "@/store/registerStore";
 import {z} from 'zod'
 import { registrationSchema } from "@/lib/StepperFormValidation";
+import ServerErrorMessage from "@/components/ServerErrorMessage";
 
 type EmailStepType = z.infer<typeof registrationSchema>;
 
@@ -14,7 +15,7 @@ type EmailStepType = z.infer<typeof registrationSchema>;
 
 const EmailStep:React.FC<StepProps> = ({formMethods}) => {
  const {register, watch, trigger, formState: { errors }} = formMethods;
- const {setEmailAddress, serverResponseGenerateOTP } = useRegistrationStore();
+ const {setEmailAddress } = useRegistrationStore();
  const watchEmailAddress = watch("emailAddress");
 
  useEffect(() => {
@@ -30,16 +31,8 @@ const EmailStep:React.FC<StepProps> = ({formMethods}) => {
       <form className="w-full">
         {/* .................EMAIL SECTION......................... */}
         <section className="space-large">
-        {serverResponseGenerateOTP?.issuccess && (
-          <span 
-          style={{background:"#184f18", padding: "4px", borderRadius: "5px", fontSize:"12px" }}
-          className="text-green-500"> {serverResponseGenerateOTP?.message}</span>
-        )}  
-        {!serverResponseGenerateOTP?.issuccess && (
-          <span 
-          style={{background:"#461e40", padding: "4px", borderRadius: "5px", fontSize:"12px" }}
-          className="text-red-500"> {serverResponseGenerateOTP?.message}</span>
-        )}
+        {/* SERVER ERROR MESSAGE COMPONENT */}
+        <ServerErrorMessage />
           <p>Step {stepHeadObj[0].step}/{stepHeadObj.length - 1}</p>
           <h1 className="text-3xl font-extrabold"> Enter Email Address</h1>
         <div className="flex items-center justify-center w-full border border-solid border-[rebeccapurple] p-[1rem] rounded-lg">
