@@ -4,6 +4,8 @@ import useRegistrationStore from "@/store/registerStore";
 import { generateOtpGRPC } from "@/apis/generateOtpGRPC";
 import { verifyOtpGRPC } from "@/apis/verifyOtpGRPC";
 import { registerGRPC } from "@/apis/registerGRPC";
+import { useRouter } from 'next/navigation'
+
 
 interface serverResponseGenerateOTPS {
   issuccess: boolean;
@@ -65,6 +67,8 @@ const StepperButton = ({
   const mobileNumberError = errors.mobileNumber;
   const passwordError = errors.password;
   const countryCodeError = errors.countryCode;
+  const router = useRouter()
+
 
   const {
     serverResponseGenerateOTP,
@@ -139,12 +143,7 @@ const StepperButton = ({
             console.log("RESPONSESSSS: ", response);
             if (response && !response.issuccess) {
               setSeverResponseGenerateOTP(response);
-              console.log("RESPONSESSSS: ", response);
-              if(resetStepper){
-                console.log("Calling resetStepper");
-                resetStepper();
-                console.log("reset successful")
-              }
+              console.log("RESPONSESSSS: ", response)
               setIsLoading(false);
               return;
             } else {
@@ -192,7 +191,10 @@ const StepperButton = ({
               return;
             } else {
               setSeverResponseGenerateOTP(response);
-              setCurrentStep(currentStep + 1);
+               setCurrentStep(currentStep + 1);
+              router.push("/dashboard")
+
+             
             }
           } catch (err) {
             console.error("An error occurred:", err);

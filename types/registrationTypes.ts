@@ -39,6 +39,8 @@ export interface RegistrationState {
     thereAreErrorsStep2: boolean;
     serverResponseGenerateOTP: null | serverResponseGenerateOTP;
     isLoading: boolean;
+
+    logout: () => void;
     setIsLoading: (value: boolean) => void;
     setSeverResponseGenerateOTP: (value: serverResponseGenerateOTP) => void;
     setThereAreErrorsStep0: (value: boolean) => void;

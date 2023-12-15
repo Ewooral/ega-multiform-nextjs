@@ -9,12 +9,13 @@ import ConfirmationStep from '@/components/stepper/forms/ConfirmationStep';
 import StepperButton from "./StepperButton";
 import { useStepperForm } from "@/hooks/useStepperForm";
 import LoadingSpinner from "../LoadingSpinner";
+import React from "react";
 
 
 const RenderActiveStep = ()  => {
 
      // get the current step state from the store and set it
-    const {currentStep, setCurrentStep, setIsLoading, isLoading} = useRegistrationStore();
+    const {currentStep, setCurrentStep, isLoading} = useRegistrationStore();
 
     // get the useForm methods from the custom hook
     const FormMethods = useStepperForm(); 
@@ -29,7 +30,7 @@ const RenderActiveStep = ()  => {
         // switch statement to render the current step
     switch(currentStep) {
         case 0:
-            return <EmailStep formMethods={FormMethods} /> 
+            return  <EmailStep formMethods={FormMethods} /> 
         case 1:
             return <VerifyOtpStep formMethods={FormMethods} />
         case 2:

@@ -68,6 +68,8 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
 
     setSeverResponseGenerateOTP: (response) => set(() => ({ serverResponseGenerateOTP: response })),
 
+    
+
 
 
     // Function to reset the store
@@ -104,7 +106,44 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
             registrationerrorcode:''
         },
 
-    })
+    }),
+
+    // Function to logout
+    logout: () => set({
+        emailAddress: '',
+        otpValue: '',
+        personalInfo: {
+            firstName: '',
+            lastName: '',
+            password: '',
+            mobileNumber: '',
+            personalBusinessGroupValue: 2,
+            countryCode: ''
+        },
+        businessInfo: {
+            businessName: '',
+            countryCodeForFirstEganowWallet: '',
+            businessContactPersonMobileNumber: '',
+            mobileNoDialCode: '',
+            mobileOrWeb: ''
+        },
+        customerSixDigitPIN: '',
+
+        currentStep: 0,
+
+        thereAreErrorsStep0: false,
+        thereAreErrorsStep1: false,
+        thereAreErrorsStep2: false,
+
+        serverResponseGenerateOTP: {
+            issuccess: false,
+            messagesuccessfulorfailed: '',
+            message: '',
+            registrationerrorcode:''
+        },
+    }),
+    
+   
 }), {
     name: 'registration-store',
     })));
