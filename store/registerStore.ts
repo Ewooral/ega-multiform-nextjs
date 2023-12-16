@@ -23,7 +23,7 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
         countryCode: ''
     },
 
-    setPersonalInfo: (info) => set((state) => ({personalInfo: {...state.personalInfo, ...info}})),
+    setPersonalInfo: (info) => set((state) => ({personalInfo: {...state.personalInfo, ...info}}), false, 'setPersonalInfo'),
 
     //Step 4: Business Info
     businessInfo: {
@@ -66,7 +66,7 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
         registrationerrorcode:''
     },
 
-    setSeverResponseGenerateOTP: (response) => set(() => ({ serverResponseGenerateOTP: response })),
+    setSeverResponseGenerateOTP: (response) => set(() => ({ serverResponseGenerateOTP: response }), false, 'setSeverResponseGenerateOTP'),
 
     
 
@@ -141,7 +141,7 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
             message: '',
             registrationerrorcode:''
         },
-    }),
+    }, false, 'logout'),
     
    
 }), {

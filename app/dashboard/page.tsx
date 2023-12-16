@@ -34,18 +34,17 @@ const Page = () => {
               height={300}
               className="bg-gray-100 rounded-full"
             />
-            {/* <h2 className="text-[12px]">Elijah Owusu Boahen</h2>
-          <h3 className="text-[12px]">Software Engineer</h3> */}
+          
           </div>
-          <article className="text-sm">
+          <article className="m-4 text-sm">
             The user profile page is a dedicated space that presents personal
             and business information about a user. It features a clean,
             grid-based layout with distinct sections for different types of
             information. The design uses a dark theme, providing a modern and
             professional look.
-            <h1>Personal Info:</h1>
-            <p className="bg-[white] p-[4px] text-black"> First name: {personalInfo.firstName}</p>
-            <p className="bg-[white] p-[4px] text-black">Last  name:{personalInfo.lastName}</p>
+            <h1 className="font-bold">Personal Info:</h1>
+            <p className="bg-[white] p-[4px] text-black mb-4"> First name: {personalInfo.firstName}</p>
+            <p className="bg-[white] p-[4px] text-black">Last name: {personalInfo.lastName}</p>
           </article>
         </div>
         <div className="bg-[#403f3f] beautify-grid-columnsA">

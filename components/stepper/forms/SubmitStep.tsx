@@ -25,24 +25,6 @@ const SubmitStep = () => {
       <h6 className='font-bold text-center'>
        Thank you for registering with us. We will get back to you shortly.
       </h6>
-
-       
-        {/* .................BUTTON SECTION......................... */}
-        <section className="flex justify-between">
-          <button
-            type="button"
-            className="px-4 py-2 font-semibold text-white bg-[#461e40] rounded-lg"
-            onClick={onReset}
-          >
-            Reset
-          </button>
-          <button
-            type="submit"
-            className="px-4 py-2 font-semibold text-white bg-[#461e40] rounded-lg"
-          >
-            Next
-          </button>
-        </section>
       </div>
   )
 }
