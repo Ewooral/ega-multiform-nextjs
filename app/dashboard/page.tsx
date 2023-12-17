@@ -2,10 +2,44 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import useRegistrationStore from "@/store/registerStore";
+import { useEffect, useState } from "react";
+
+
+function withAuth(Component: any) {
+  return function AuthenticatedComponent(props: any) {
+    const router = useRouter();
+    const [isLoading, setIsLoading] = useState(true);
+    const {  serverResponseGenerateOTP } = useRegistrationStore();
+
+    useEffect(() => {
+      // @ts-ignore
+      if (serverResponseGenerateOTP && !serverResponseGenerateOTP.userjwttoken) {
+        router.replace('/');
+      } else {
+        setIsLoading(false);
+      }
+    }, [serverResponseGenerateOTP, router]);
+
+    if (isLoading) {
+      return <div>Loading...</div>; // Or your custom loading component
+    }
+
+    return <Component {...props} />;
+  }
+}
+
 const Page = () => {
-  const { resetStepper, personalInfo } = useRegistrationStore();
+  const {serverResponseGenerateOTP, resetStepper, personalInfo, setSeverResponseGenerateOTP } = useRegistrationStore();
   const router = useRouter();
 
+  if (serverResponseGenerateOTP && !serverResponseGenerateOTP.userjwttoken) {
+    setSeverResponseGenerateOTP({
+      issuccess: false,
+      message: "You are not authorized to view this page. Please login or register!",  
+              
+    })
+  }
+  
   function handleReset() {
     if (resetStepper) {
       resetStepper();
@@ -25,7 +59,7 @@ const Page = () => {
       </header>
 
       <div className="grid gap-4 lg:grid-cols-3">
-        <div className="flex bg-[#403f3f] beautify-grid-columns gap-4">
+        <div className="flex bg-[#403f3f] beautify-grid-columns gap-4 rounded-tl-[8rem]">
           <div className="flex flex-col items-center justify-center">
             <Image
               src={"/avatar.jpg"}
@@ -36,15 +70,15 @@ const Page = () => {
             />
           
           </div>
-          <article className="m-4 text-sm">
+          <article className="m-4 text-sm ">
             The user profile page is a dedicated space that presents personal
             and business information about a user. It features a clean,
             grid-based layout with distinct sections for different types of
             information. The design uses a dark theme, providing a modern and
             professional look.
             <h1 className="font-bold">Personal Info:</h1>
-            <p className="bg-[white] p-[4px] text-black mb-4"> First name: {personalInfo.firstName}</p>
-            <p className="bg-[white] p-[4px] text-black">Last name: {personalInfo.lastName}</p>
+            <span className="bg-[white] p-[4px] text-black mb-4"> First name: {personalInfo.firstName}</span>
+            <span className="bg-[white] p-[4px] text-black">Last name: {personalInfo.lastName}</span>
           </article>
         </div>
         <div className="bg-[#403f3f] beautify-grid-columnsA">
@@ -58,4 +92,7 @@ const Page = () => {
   );
 };
 
-export default Page;
+
+
+
+export default withAuth(Page);

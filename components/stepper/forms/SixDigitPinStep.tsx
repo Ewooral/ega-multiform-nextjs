@@ -24,7 +24,7 @@ const SixDigitPinStep: React.FC<StepProps> = ({ formMethods }) => {
 
   useEffect(() => {
     setCustomerSixDigitPIN(watchCustomerSixDigitPin);
-    trigger("firstName");
+    trigger("customerSixDigitPIN");
   }, [watchCustomerSixDigitPin, trigger]);
 
   return (

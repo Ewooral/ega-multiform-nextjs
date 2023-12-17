@@ -5,6 +5,9 @@ import RenderActiveStep from "./RenderActiveStep";
 import dynamic from "next/dynamic";
 import Modal from "@/components/Modal";
 import CustomButton from "../CustomButton";
+import CreateWorker from "../workers/CreateWorker";
+import { bgColorClasses } from "@/data/stylesValues";
+import useRegisterStore from "@/store/registerStore";
 
 const Stepper = () => {
   /* ? The issue is related to the server-side rendering (SSR) and client-side rendering mismatch. 
@@ -21,48 +24,59 @@ const Stepper = () => {
     ssr: false,
   });
 
-
+  const {bgColor, setBgColor} = useRegisterStore();
   return (
     <>
       <div className="grid grid-cols-3 grid-rows-1 gap-4">
         {/* Header */}
-        <div className={clsx`col-span-3 bg-[#02044a]`}>
-          <div className={clsx`grid w-full grid-cols-6 bg-[#02044a]`}>
+        <div className={clsx`col-span-3 ${bgColor}`}>
+          <div className={clsx`grid w-full grid-cols-6 ${bgColor}`}>
             {/* ..............STEPPER SIDEBAR................ */}
             <div
-              className={clsx`h-[100%] col-span-2  border-r-2 border-[#66339973] `}
+              className={clsx`h-[100%] col-span-3 lg:col-span-2  border-r-2 border-[#66339973] `}
             >
               <StepperSideBar />
             </div>
 
             {/* ...........STEPPER FORM.................. */}
             <div
-              className={clsx`h-full col-span-3 text-white flex flex-col justify-between items-start px-[1rem]`}
+              className={clsx`h-full col-span-3  md:col-span-2 text-white flex flex-col justify-between items-start px-[1rem]`}
             >
               <RenderActiveStep />
             </div>
             <div
-              className={clsx`h-full col-span-1 p-4 border-l-2 border-[#66339971]`}
+              className={clsx`h-full col-span-3 md:col-span-2 p-4 border-l-2 border-[#66339971]`}
             >
               {/* SETTINGS */}
 
               {/*  Option select */}
               <div className="w-full max-w-xs mx-auto">
                 <label
-                  className="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                  className={clsx`block mb-2 text-xs font-bold tracking-wide text-white uppercase`}
                   htmlFor="grid-state"
                 >
                   Change background color
                 </label>
                 <div className="relative">
                   <select
-                    className="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-[#02044a] border border-gray-300 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                   onChange={(e) => setBgColor(e.target.value)}
+                    className={clsx`block w-full px-4 py-3 pr-8 leading-tight text-white mb-4 ${bgColor} border
+                     border-gray-300 rounded appearance-none focus:text-black focus:outline-none focus:${bgColor} focus:border-gray-500`}
                     id="grid-state"
                   >
-                    <option>New York</option>
-                    <option>New Jersey</option>
-                    <option>California</option>
-                    <option>Texas</option>
+                    {
+                      bgColorClasses.map((bgColorClass, key) => {
+                        return (
+                          <option
+                            key={key}
+                            value={bgColorClass}
+                            className={clsx`bg-${bgColorClass}`}
+                          >
+                            {bgColorClass}
+                          </option>
+                        );
+                      })
+                    }
                   </select>
                   <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
                     <svg
@@ -75,6 +89,8 @@ const Stepper = () => {
                   </div>
                 </div>
               </div>
+
+              <CreateWorker />
             </div>
           </div>
         </div>

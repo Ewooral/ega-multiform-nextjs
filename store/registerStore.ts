@@ -63,12 +63,16 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
         issuccess: false,
         messagesuccessfulorfailed: '',
         message: '',
-        registrationerrorcode:''
+        registrationerrorcode:'',
+        userjwttoken: ''
     },
 
     setSeverResponseGenerateOTP: (response) => set(() => ({ serverResponseGenerateOTP: response }), false, 'setSeverResponseGenerateOTP'),
 
     
+    // Styling
+    bgColor: "bg-[#02044a]",
+    setBgColor: (value: string) => set({bgColor: value}),
 
 
 
@@ -103,7 +107,8 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
             issuccess: false,
             messagesuccessfulorfailed: '',
             message: '',
-            registrationerrorcode:''
+            registrationerrorcode:'',
+            userjwttoken: ''
         },
 
     }),
@@ -139,7 +144,8 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
             issuccess: false,
             messagesuccessfulorfailed: '',
             message: '',
-            registrationerrorcode:''
+            registrationerrorcode:'',
+            userjwttoken: ''
         },
     }, false, 'logout'),
     

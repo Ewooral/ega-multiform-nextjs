@@ -5,12 +5,6 @@ import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutli
 const SubmitStep = () => {
   const {serverResponseGenerateOTP, resetStepper } = useRegistrationStore();
 
-    // function that resets the stepper form
-  function onReset(){
-    if(resetStepper){
-      resetStepper();
-    }
-  }
   return (
     <div 
     className='sppace-large flex flex-col justify-center items-center w-full p-[3rem] mt-[2rem] mb-[2rem]'>

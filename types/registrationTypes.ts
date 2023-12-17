@@ -18,9 +18,10 @@ interface BusinessInfo{
 
 interface serverResponseGenerateOTP{
     issuccess: boolean;
-    messagesuccessfulorfailed: string;
+    messagesuccessfulorfailed?: string;
     message: string;
-    registrationerrorcode: string;
+    registrationerrorcode?: string;
+    userjwttoken?: string;
 
 
 }
@@ -39,7 +40,9 @@ export interface RegistrationState {
     thereAreErrorsStep2: boolean;
     serverResponseGenerateOTP: null | serverResponseGenerateOTP;
     isLoading: boolean;
+    bgColor: string;
 
+    setBgColor: (value: string) => void;
     logout: () => void;
     setIsLoading: (value: boolean) => void;
     setSeverResponseGenerateOTP: (value: serverResponseGenerateOTP) => void;

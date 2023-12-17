@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 :root{
-    background-color: #02044a;
+  --main-bg-color: #02044a;
+   
     color: white;
+}
+
+body {
+  background-color: var(--main-bg-color);
 }
 
 .space-large > * {

@@ -1,4 +1,4 @@
-export const bgColorClasses = ['bg-[#02044a]','bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 'bg-purple-500'];
+export const bgColorClasses = [ 'bg-blue', 'bg-black'];
 export const fontSizeClasses = ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl'];
 export const paddingYClasses = ['py-1', 'py-2', 'py-3', 'py-4', 'py-5'];
 export const paddingXClasses = ['px-1', 'px-2', 'px-3', 'px-4', 'px-5'];
