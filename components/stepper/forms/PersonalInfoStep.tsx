@@ -1,19 +1,9 @@
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import MarkEmailUnreadOutlinedIcon from "@mui/icons-material/MarkEmailUnreadOutlined";
-import FingerprintOutlinedIcon from "@mui/icons-material/FingerprintOutlined";
-import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
-import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
-import PasswordOutlinedIcon from "@mui/icons-material/PasswordOutlined";
-import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
-import DoneAllOutlinedIcon from "@mui/icons-material/DoneAllOutlined";
+
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
-import LocalConvenienceStoreOutlinedIcon from "@mui/icons-material/LocalConvenienceStoreOutlined";
 import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
-import BroadcastOnPersonalOutlinedIcon from "@mui/icons-material/BroadcastOnPersonalOutlined";
 import SportsScoreOutlinedIcon from "@mui/icons-material/SportsScoreOutlined";
-import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
 import { stepHeadObj } from "@/data/stepperheaderObj";
 import { StepProps } from "@/types/registrationTypes";
 import useRegistrationStore from "@/store/registerStore";
@@ -79,36 +69,6 @@ const PersonalInfoStep: React.FC<StepProps> = ({
     trigger,
   ]);
 
-  // function that handles the mobile number input  format to "233-054631-3876"
-  // const handleMobileNumberChange = (
-  //   event: React.ChangeEvent<HTMLInputElement>
-  // ) => {
-  //   let input = event.target.value.replace(/\D/g, "");
-  //   input = input.slice(0, 13); // truncate if too long
-  //   let size = input.length;
-  //   if (size < 4) {
-  //     input = input;
-  //   } else if (size < 7) {
-  //     input = input.substring(0, 3) + "-" + input.substring(3, 6);
-  //   } else if (size < 10) {
-  //     input =
-  //       input.substring(0, 3) +
-  //       "-" +
-  //       input.substring(3, 6) +
-  //       "-" +
-  //       input.substring(6, 9);
-  //   } else {
-  //     input =
-  //       input.substring(0, 3) +
-  //       "-" +
-  //       input.substring(3, 6) +
-  //       "-" +
-  //       input.substring(6, 10) +
-  //       "-" +
-  //       input.substring(10, 13);
-  //   }
-  //   return input;
-  // };
   function handleMobileNumberChange(e: React.ChangeEvent<HTMLInputElement>) {
     // Remove any non-numeric characters from the input
     const numericInput = e.target.value.replace(/\D/g, "");
@@ -133,23 +93,7 @@ const PersonalInfoStep: React.FC<StepProps> = ({
           Step {stepHeadObj[2].step}/{stepHeadObj.length - 1}
         </p>
         <h1 className="text-3xl font-extrabold"> Enter Personal Details</h1>
-        {/* <div className="flex items-center justify-center w-full border border-solid border-[rebeccapurple] p-[1rem] rounded-lg">
-          <BroadcastOnPersonalOutlinedIcon />
-          <input
-            type="number"
-            placeholder="Personal Business Group Value"
-            className="w-full p-2 text-white bg-transparent border-2 border-none outline-none rounded-[3rem]"
-            {...register("personalBusinessGroupValue", {
-              required: true,
-              defaultValue: 2,
-            })}
-          />
-          {errors.personalBusinessGroupValue && (
-            <span className="text-red-500">
-              {errors.personalBusinessGroupValue.message}
-            </span>
-          )}
-        </div> */}
+        
         
 
         <div className="flex items-center justify-center w-full border border-solid border-[rebeccapurple] p-[1rem] rounded-lg">
@@ -271,6 +215,7 @@ const PersonalInfoStep: React.FC<StepProps> = ({
       {errors.mobileNumber && (
         <span className="text-red-500 bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">{errors.mobileNumber.message}</span>
       )}
+      
     </form>
   );
 };

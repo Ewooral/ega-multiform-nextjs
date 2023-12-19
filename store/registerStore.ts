@@ -1,10 +1,10 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-import { RegistrationState } from '@/types/registrationTypes';
+import { RegistrationState, LoginState } from '@/types/registrationTypes';
 
 
 //@ts-ignore
-const useRegistrationStore = create<RegistrationState>(devtools(persist((set) => ({
+const useRegistrationStore = create<RegistrationState & LoginState>(devtools(persist((set) => ({
     // Step 1: Email Address
     emailAddress: '',
     setEmailAddress: (value: string) => set({emailAddress: value}),
@@ -69,7 +69,28 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
 
     setSeverResponseGenerateOTP: (response) => set(() => ({ serverResponseGenerateOTP: response }), false, 'setSeverResponseGenerateOTP'),
 
-    
+   // Login
+   login: {
+    countryCode: '',
+    customerId: '',
+    mobileOrWeb: '',
+    password1OrPin2OrHPin3Option: 1,
+    passwordOrPin: '',
+    personalBusinessGroupValue: 2,
+    },
+
+    loginResponse: {
+        issuccess: false,
+        messagesuccessfulorfailed: '',
+        message: '',
+        userjwttoken: '',
+        firstname: '',
+        lastname: ''
+    },
+
+    setLoginResponse: (value: any) => set((state) => ({ ...state, loginResponse: { ...state.loginResponse, ...value } }), false, 'setLoginResponse'),
+
+    setLogin: (value: any) => set((state) => ({ ...state, login: { ...state.login, ...value } }), false, 'setLogin'),
     // Styling
     bgColor: "bg-[#02044a]",
     setBgColor: (value: string) => set({bgColor: value}),
@@ -110,6 +131,22 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
             registrationerrorcode:'',
             userjwttoken: ''
         },
+        login: {
+            countryCode: '',
+            customerId: '',
+            mobileOrWeb: '',
+            password1OrPin2OrHPin3Option: 1,
+            passwordOrPin: '',
+            personalBusinessGroupValue: 2,
+            },
+            loginResponse: {
+                issuccess: false,
+                messagesuccessfulorfailed: '',
+                message: '',
+                userjwttoken: '',
+                firstname: '',
+                lastname: ''
+            },
 
     }),
 
@@ -146,7 +183,25 @@ const useRegistrationStore = create<RegistrationState>(devtools(persist((set) =>
             message: '',
             registrationerrorcode:'',
             userjwttoken: ''
+            
         },
+        login: {
+            countryCode: '',
+            customerId: '',
+            mobileOrWeb: '',
+            password1OrPin2OrHPin3Option: 1,
+            passwordOrPin: '',
+            personalBusinessGroupValue: 2,
+            },
+            loginResponse: {
+                issuccess: false,
+                messagesuccessfulorfailed: '',
+                message: '',
+                userjwttoken: '',
+                firstname: '',
+                lastname: ''
+            },
+
     }, false, 'logout'),
     
    

@@ -3,49 +3,52 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import useRegistrationStore from "@/store/registerStore";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 
 function withAuth(Component: any) {
   return function AuthenticatedComponent(props: any) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
-    const {  serverResponseGenerateOTP } = useRegistrationStore();
+    const { serverResponseGenerateOTP, loginResponse } = useRegistrationStore();
+    
 
     useEffect(() => {
       // @ts-ignore
-      if (serverResponseGenerateOTP && !serverResponseGenerateOTP.userjwttoken) {
-        router.replace('/');
+      if (!loginResponse?.userjwttoken) {
+        router.replace('/login');
+        console.log("sorry!")
       } else {
         setIsLoading(false);
       }
     }, [serverResponseGenerateOTP, router]);
 
     if (isLoading) {
-      return <div>Loading...</div>; // Or your custom loading component
+      return <div><LoadingSpinner /></div>; // Or your custom loading component
     }
 
     return <Component {...props} />;
   }
 }
 
+
 const Page = () => {
-  const {serverResponseGenerateOTP, resetStepper, personalInfo, setSeverResponseGenerateOTP } = useRegistrationStore();
+  const {resetStepper, personalInfo, loginResponse } = useRegistrationStore();
   const router = useRouter();
 
-  if (serverResponseGenerateOTP && !serverResponseGenerateOTP.userjwttoken) {
-    setSeverResponseGenerateOTP({
-      issuccess: false,
-      message: "You are not authorized to view this page. Please login or register!",  
-              
-    })
-  }
   
   function handleReset() {
     if (resetStepper) {
       resetStepper();
-      router.push("/");
+      router.push("/login");
     }
   }
+  useEffect(() => {
+    if (loginResponse) {
+      console.log(loginResponse?.firstname)
+    }
+  }
+  , [loginResponse]);
 
   return (
     <>
@@ -77,8 +80,9 @@ const Page = () => {
             information. The design uses a dark theme, providing a modern and
             professional look.
             <h1 className="font-bold">Personal Info:</h1>
-            <span className="bg-[white] p-[4px] text-black mb-4"> First name: {personalInfo.firstName}</span>
-            <span className="bg-[white] p-[4px] text-black">Last name: {personalInfo.lastName}</span>
+            
+            <span className=" text-blue-200 p-[4px] mb-4"> {loginResponse && loginResponse.firstname}</span>{" "}
+            <span className="bg-[white] p-[2px] text-black rounded-lg">{loginResponse && loginResponse.lastname}</span>
           </article>
         </div>
         <div className="bg-[#403f3f] beautify-grid-columnsA">

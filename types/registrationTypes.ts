@@ -25,6 +25,29 @@ interface serverResponseGenerateOTP{
 
 
 }
+export interface LoginState {
+    login: {
+      countryCode: string;
+      customerId: string;
+      mobileOrWeb: string;
+      password1OrPin2OrHPin3Option: number;
+      passwordOrPin: string;
+      personalBusinessGroupValue: number;
+    };
+
+    
+    // ... rest of your LoginState properties
+  };
+
+   interface loginResponse{
+    issuccess?: boolean;
+    messagesuccessfulorfailed?: string;
+    message?: string;
+    userjwttoken?: string;
+    firstname?: string;
+    lastname?: string;
+  }
+  
 
 
 
@@ -42,6 +65,9 @@ export interface RegistrationState {
     isLoading: boolean;
     bgColor: string;
 
+   loginResponse: null | loginResponse;
+
+   setLoginResponse: (value: loginResponse) => void;
     setBgColor: (value: string) => void;
     logout: () => void;
     setIsLoading: (value: boolean) => void;
@@ -55,6 +81,7 @@ export interface RegistrationState {
     setPersonalInfo: (info: PersonalInfo) => void;
     setBusinessInfo: (info: BusinessInfo) => void; 
     setCustomerSixDigitPIN: (value: string) => void;
+    setLogin: (info: LoginState) => void;
     
     resetStepper?: () => void;
     

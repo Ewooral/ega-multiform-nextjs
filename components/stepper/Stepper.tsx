@@ -8,6 +8,7 @@ import CustomButton from "../CustomButton";
 import CreateWorker from "../workers/CreateWorker";
 import { bgColorClasses } from "@/data/stylesValues";
 import useRegisterStore from "@/store/registerStore";
+import Link from "next/link";
 
 const Stepper = () => {
   /* ? The issue is related to the server-side rendering (SSR) and client-side rendering mismatch. 
@@ -24,7 +25,7 @@ const Stepper = () => {
     ssr: false,
   });
 
-  const {bgColor, setBgColor} = useRegisterStore();
+  const { bgColor, setBgColor } = useRegisterStore();
   return (
     <>
       <div className="grid grid-cols-3 grid-rows-1 gap-4">
@@ -33,7 +34,7 @@ const Stepper = () => {
           <div className={clsx`grid w-full grid-cols-6 ${bgColor}`}>
             {/* ..............STEPPER SIDEBAR................ */}
             <div
-              className={clsx`h-[100%] col-span-3 lg:col-span-2  border-r-2 border-[#66339973] `}
+              className={clsx`h-[100%] col-span-3 lg:col-span-2  border-r-2 border-[#66339973]`}
             >
               <StepperSideBar />
             </div>
@@ -45,38 +46,36 @@ const Stepper = () => {
               <RenderActiveStep />
             </div>
             <div
-              className={clsx`h-full col-span-3 md:col-span-2 p-4 border-l-2 border-[#66339971]`}
+              className={clsx`flex flex-col justify-between h-full col-span-3 md:col-span-2 p-4 border-l-2 border-[#66339971]`}
             >
               {/* SETTINGS */}
 
               {/*  Option select */}
-              <div className="w-full max-w-xs mx-auto">
+              <div className="w-full mx-auto">
                 <label
                   className={clsx`block mb-2 text-xs font-bold tracking-wide text-white uppercase`}
                   htmlFor="grid-state"
                 >
                   Change background color
                 </label>
-                <div className="relative">
+                <div className="">
                   <select
-                   onChange={(e) => setBgColor(e.target.value)}
+                    onChange={(e) => setBgColor(e.target.value)}
                     className={clsx`block w-full px-4 py-3 pr-8 leading-tight text-white mb-4 ${bgColor} border
                      border-gray-300 rounded appearance-none focus:text-black focus:outline-none focus:${bgColor} focus:border-gray-500`}
                     id="grid-state"
                   >
-                    {
-                      bgColorClasses.map((bgColorClass, key) => {
-                        return (
-                          <option
-                            key={key}
-                            value={bgColorClass}
-                            className={clsx`bg-${bgColorClass}`}
-                          >
-                            {bgColorClass}
-                          </option>
-                        );
-                      })
-                    }
+                    {bgColorClasses.map((bgColorClass, key) => {
+                      return (
+                        <option
+                          key={key}
+                          value={bgColorClass}
+                          className={clsx`bg-${bgColorClass}`}
+                        >
+                          {bgColorClass}
+                        </option>
+                      );
+                    })}
                   </select>
                   <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
                     <svg
@@ -90,7 +89,13 @@ const Stepper = () => {
                 </div>
               </div>
 
-              <CreateWorker />
+              {/* <CreateWorker /> */}
+              <div>
+                Already registered?{" "}
+                <Link href="/login">
+                  <span className="text-blue-400"> Log In!</span>{" "}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

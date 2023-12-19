@@ -32,7 +32,6 @@ const StepperButton = ({
     trigger,
     formState: { errors },
   } = formMethods;
-  const {} = useRegistrationStore();
   const emailAddress = watch("emailAddress");
   const otp = watch("otpValue");
   const emailAddressError = errors.emailAddress;
@@ -97,19 +96,6 @@ const StepperButton = ({
     try {
       if (currentStep < stepHeadObj.length - 1) {
         setIsLoading(true);
-
-        // // generate otp
-        // if (currentStep === 0 ) {
-        //   try {
-        //     await generateOtpGRPC(emailAddress, setSeverResponseGenerateOTP);
-        //     if(serverResponseGenerateOTP && serverResponseGenerateOTP.issuccess){
-        //       setCurrentStep(currentStep + 1);
-        //     }
-        //   } catch (err) {
-        //     setIsLoading(false);
-        //     console.error('An error occurred:', err);
-        //   }
-        // }
 
         // generate otp
         if (currentStep === 0) {
