@@ -131,14 +131,14 @@ const page = () => {
           <Image
             src="/ega.png"
             alt="img"
-            width={100}
-            height={100}
+            width={80}
+            height={80}
             className="flex items-center justify-center"
           />
 
-          <h1 className="text-3xl font-extrabold">
+          <h1 className="text-sm font-extrabold">
             {" "}
-            Kindly enter your login credentials
+            Kindly Enter Your Login Credentials
           </h1>
           <div className="flex items-center justify-center w-full border  border-solid border-[rebeccapurple] p-[1rem] rounded-lg">
             <HowToRegOutlinedIcon />
