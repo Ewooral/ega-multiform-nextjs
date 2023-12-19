@@ -57,7 +57,6 @@ export const  CustomSuccessToaster =  ({ message, show, setShow }: CustomErrorTo
 export const  CustomErrorToaster =  ({ message, show, setShow }: CustomErrorToasterProps) => {
   useEffect(() => {
     if (show) {
-      console.log("message: ", message, "show:", show, "setShow:", setShow)
       const timer = setTimeout(() => {
         setShow(false);
       }, 6000);

@@ -31,19 +31,19 @@ const Stepper = () => {
           <div className={clsx`grid w-full grid-cols-6 ${bgColor}`}>
             {/* ..............STEPPER SIDEBAR................ */}
             <div
-              className={clsx`h-[100%] col-span-3 lg:col-span-2  border-r-2 border-[#66339973]`}
+              className={clsx`hidden lg:block h-[100%] lg:col-span-2  border-r-2 border-[#66339973]`}
             >
               <StepperSideBar />
             </div>
 
             {/* ...........STEPPER FORM.................. */}
             <div
-              className={clsx`h-full col-span-3  md:col-span-2 text-white flex flex-col justify-between items-start px-[1rem]`}
+              className={clsx`h-full col-span-6 sm:col-span-3  lg:col-span-2 text-white flex flex-col justify-between items-start px-[1rem]`}
             >
               <RenderActiveStep />
             </div>
             <div
-              className={clsx`flex flex-col justify-between h-full col-span-3 md:col-span-2 p-4 border-l-2 border-[#66339971]`}
+              className={clsx`flex flex-col justify-between h-full sm:col-span-3 col-span-6 md:col-span-2 p-4 border-l-2 border-[#66339971]`}
             >
               {/* SETTINGS */}
 

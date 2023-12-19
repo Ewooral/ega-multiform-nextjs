@@ -125,34 +125,6 @@ const page = () => {
     <div className="beautify-card">
       <form className="bg-[#00000040]">
       
-        <div className="bg-white w-full h-[5vh]">
-          {/* {loginResponse?.issuccess && (
-            <span
-              style={{
-                padding: "4px",
-                borderRadius: "5px",
-                fontSize: "12px",
-              }}
-              className="text-green-500"
-            >
-              {" "}
-              {loginResponse?.message}
-            </span>
-          )}
-          {!loginResponse?.issuccess && (
-            <span
-              style={{
-                padding: "4px",
-                borderRadius: "5px",
-                fontSize: "12px",
-              }}
-              className="text-red-500"
-            >
-              {" "}
-              {loginResponse?.message}
-            </span>
-          )} */}
-        </div>
         {/* ................EMAIL SECTION......................... */}
 
         <section className="flex flex-col items-center justify-center px-6 shiftsmall">
