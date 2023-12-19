@@ -3,10 +3,6 @@ import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import RenderActiveStep from "./RenderActiveStep";
 import dynamic from "next/dynamic";
-import Modal from "@/components/Modal";
-import CustomButton from "../CustomButton";
-import CreateWorker from "../workers/CreateWorker";
-import { bgColorClasses } from "@/data/stylesValues";
 import useRegisterStore from "@/store/registerStore";
 import Link from "next/link";
 
@@ -26,6 +22,7 @@ const Stepper = () => {
   });
 
   const { bgColor, setBgColor } = useRegisterStore();
+  const [show, setShow] = useState(false);
   return (
     <>
       <div className="grid grid-cols-3 grid-rows-1 gap-4">
@@ -51,7 +48,7 @@ const Stepper = () => {
               {/* SETTINGS */}
 
               {/*  Option select */}
-              <div className="w-full mx-auto">
+              {/* <div className="w-full mx-auto">
                 <label
                   className={clsx`block mb-2 text-xs font-bold tracking-wide text-white uppercase`}
                   htmlFor="grid-state"
@@ -87,7 +84,7 @@ const Stepper = () => {
                     </svg>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* <CreateWorker /> */}
               <div>
@@ -96,6 +93,7 @@ const Stepper = () => {
                   <span className="text-blue-400"> Log In!</span>{" "}
                 </Link>
               </div>
+
             </div>
           </div>
         </div>

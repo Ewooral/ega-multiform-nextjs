@@ -5,10 +5,9 @@ import PersonalInfoStep from '@/components/stepper/forms/PersonalInfoStep';
 import BusinessInfoStep from '@/components/stepper/forms/BusinessInfoStep';
 import SixDigitPinStep from '@/components/stepper/forms/SixDigitPinStep';
 import SubmitStep from '@/components/stepper/forms/SubmitStep';
-import ConfirmationStep from '@/components/stepper/forms/ConfirmationStep';
 import StepperButton from "./StepperButton";
 import { useStepperForm } from "@/hooks/useStepperForm";
-import LoadingSpinner from "../LoadingSpinner";
+import {LoadingSpinner} from "../CustomComponents";
 import React from "react";
 
 
@@ -25,7 +24,7 @@ const RenderActiveStep = ()  => {
         //Render a loading state
         // if(isLoading) return <LoadingSpinner />
 
-        if(isLoading) return <h1>Loading...</h1>
+        if(isLoading) return <div><LoadingSpinner /></div>
 
         // switch statement to render the current step
     switch(currentStep) {

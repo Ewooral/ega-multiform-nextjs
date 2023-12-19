@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { stepHeadObj } from "@/data/stepperheaderObj";
 import useRegistrationStore from "@/store/registerStore";
-import BlinkingLight from "../BlinkingLight";
-import { StaticLight } from "../StaticLight";
+import {BlinkingLight} from "../CustomComponents";
+import { StaticLight } from "../CustomComponents";
 
 const StepperSideBar = () => {
   const { currentStep, setCurrentStep } = useRegistrationStore();

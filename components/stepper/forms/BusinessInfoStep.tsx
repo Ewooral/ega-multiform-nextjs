@@ -1,19 +1,7 @@
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import MarkEmailUnreadOutlinedIcon from "@mui/icons-material/MarkEmailUnreadOutlined";
-import FingerprintOutlinedIcon from "@mui/icons-material/FingerprintOutlined";
-import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
-import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
-import PasswordOutlinedIcon from "@mui/icons-material/PasswordOutlined";
-import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
-import DoneAllOutlinedIcon from "@mui/icons-material/DoneAllOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
-import LocalConvenienceStoreOutlinedIcon from "@mui/icons-material/LocalConvenienceStoreOutlined";
 import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
-import BroadcastOnPersonalOutlinedIcon from "@mui/icons-material/BroadcastOnPersonalOutlined";
 import SportsScoreOutlinedIcon from "@mui/icons-material/SportsScoreOutlined";
-import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
 import { stepHeadObj } from "@/data/stepperheaderObj";
 import { StepProps } from "@/types/registrationTypes";
 import useRegistrationStore from "@/store/registerStore";
@@ -23,7 +11,6 @@ import { Controller } from "react-hook-form";
 import { registrationSchema } from "@/lib/StepperFormValidation";
 import { z } from "zod";
 
-type PersonalInfoType = z.infer<typeof registrationSchema>;
 
 const PersonalInfoStep: React.FC<StepProps> = ({
   formMethods,

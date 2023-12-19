@@ -2,23 +2,19 @@
 import React, { useEffect, useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, SubmitHandler, FormState, Controller } from "react-hook-form";
+import { useForm} from "react-hook-form";
 import useCountries from "@/hooks/useCountries";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import LockClockOutlinedIcon from "@mui/icons-material/LockClockOutlined";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
-import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
 import SportsScoreOutlinedIcon from "@mui/icons-material/SportsScoreOutlined";
 import { API_URL } from "@/constant";
 import useRegistrationStore from "@/store/registerStore";
 import { loginGRPC } from "@/apis/loginGRPC";
-import { stepHeadObj } from "@/data/stepperheaderObj";
-import LanguageIcon from "@mui/icons-material/Language";
-import { LoginState, RegistrationState } from "@/types/registrationTypes";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import LoadingSpinner from "@/components/LoadingSpinner";
+import {LoadingSpinner} from "@/components/CustomComponents";
 import Link from "next/link";
+import {CustomErrorToaster} from "@/components/CustomComponents";
 
 
 
@@ -46,6 +42,7 @@ const page = () => {
   const [countryOption] = useCountries(API_URL);
   const [flag, setFlag] = useState();
   const[isLoading, setIsLoading] = useState(false)
+  const [show, setShow] = useState(false);
   const {
     login,
     setLogin,
@@ -99,9 +96,10 @@ const page = () => {
       // @ts-ignore
       const response = (await loginGRPC({ login })) as loginResponse;
      
-      if(!response?.issuccess && !response.userjwttoken  && response.messagesuccessfulorfailed !== "SUCCESSFUL"){
+      if(!response?.issuccess && response.messagesuccessfulorfailed !== "SUCCESSFUL"){
         setLoginResponse(response)
-        console.log("RESPONSE::::", response);
+        setShow(true)
+        // console.log("RESPONSE::::", response);
         setIsLoading(false)
         return;
       }
@@ -111,14 +109,15 @@ const page = () => {
       }
       
     } catch (err) {
-      console.log("ERROR::::", err);
+      setShow(true)
+      // console.log("ERROR::::", err);
       setIsLoading(false)
     }
   };
 
 
   return (
-    <>
+    <div className="grid h-screen place-items-center">
     {isLoading && 
     
     <LoadingSpinner />
@@ -127,7 +126,7 @@ const page = () => {
       <form className="bg-[#00000040]">
       
         <div className="bg-white w-full h-[5vh]">
-          {loginResponse?.issuccess && (
+          {/* {loginResponse?.issuccess && (
             <span
               style={{
                 padding: "4px",
@@ -152,7 +151,7 @@ const page = () => {
               {" "}
               {loginResponse?.message}
             </span>
-          )}
+          )} */}
         </div>
         {/* ................EMAIL SECTION......................... */}
 
@@ -197,7 +196,7 @@ const page = () => {
               {...register("passwordOrPin", { required: true })}
             />
           </div>
-          <div className="flex items-center justify-center w-full border border-solid border-[rebeccapurple] p-[1rem] rounded-lg">
+          {/* <div className="flex items-center justify-center w-full border border-solid border-[rebeccapurple] p-[1rem] rounded-lg">
             <LanguageIcon />
             <input
               type="text"
@@ -205,7 +204,7 @@ const page = () => {
               className="w-full p-2 text-white bg-transparent border-2 border-none outline-none rounded-[3rem]"
               {...register("mobileOrWeb", { required: true })}
             />
-          </div>
+          </div> */}
           {errors.countryCode && (
             <span className="text-red-500 bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">
               {errors.countryCode.message}
@@ -259,6 +258,13 @@ const page = () => {
           >
             Login
           </button>
+
+          {/* ERROR MESSAGE */}
+          <CustomErrorToaster
+                  message={loginResponse && loginResponse?.message || ''}
+                  show={show}
+                  setShow={setShow}
+                />
           {errors.countryCode && (
             <span className="text-red-500 bg-[#ff00004f] text-[12px] p-[4px] rounded-[7px]">
               {errors.countryCode.message}
@@ -275,7 +281,7 @@ const page = () => {
         </section>
       </form>
     </div>
-    </>
+    </div>
   );
 };
 

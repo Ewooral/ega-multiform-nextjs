@@ -7,7 +7,7 @@ import useRegistrationStore from "@/store/registerStore";
 import { z } from "zod";
 import { registrationSchema } from "@/lib/StepperFormValidation";
 import ServerErrorMessage from "@/components/ServerErrorMessage";
-import Modal from "@/components/Modal";
+import {Modal} from "@/components/CustomComponents";
 
 type EmailStepType = z.infer<typeof registrationSchema>;
 

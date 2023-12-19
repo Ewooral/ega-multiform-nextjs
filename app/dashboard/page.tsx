@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import useRegistrationStore from "@/store/registerStore";
 import { useEffect, useState } from "react";
-import LoadingSpinner from "@/components/LoadingSpinner";
+import {LoadingSpinner} from "@/components/CustomComponents";
 
 
 function withAuth(Component: any) {
