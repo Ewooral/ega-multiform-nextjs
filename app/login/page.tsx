@@ -122,7 +122,7 @@ const page = () => {
     
     <LoadingSpinner />
       }
-    <div className="beautify-card">
+    <div className="beautify-card md:border-[2px] md:border-white ">
       <form className="bg-[#00000040]">
       
         {/* ................EMAIL SECTION......................... */}
@@ -233,7 +233,7 @@ const page = () => {
 
           {/* ERROR MESSAGE */}
           <CustomErrorToaster
-                  message={loginResponse && loginResponse?.message || ''}
+                  message={loginResponse && loginResponse?.message || 'Your internet connection might be down!'}
                   show={show}
                   setShow={setShow}
                 />
