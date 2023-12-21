@@ -95,6 +95,10 @@ const useRegistrationStore = create<RegistrationState & LoginState>(devtools(per
     bgColor: "bg-[#02044a]",
     setBgColor: (value: string) => set({bgColor: value}),
 
+     // show toaster
+     showToaster: false,
+     setShowToaster: (value: boolean) => set({showToaster: value}),
+
 
 
     // Function to reset the store
@@ -131,6 +135,8 @@ const useRegistrationStore = create<RegistrationState & LoginState>(devtools(per
             registrationerrorcode:'',
             userjwttoken: ''
         },
+
+        showToaster: false,
         login: {
             countryCode: '',
             customerId: '',
@@ -176,6 +182,8 @@ const useRegistrationStore = create<RegistrationState & LoginState>(devtools(per
         thereAreErrorsStep0: false,
         thereAreErrorsStep1: false,
         thereAreErrorsStep2: false,
+        showToaster: false,
+
 
         serverResponseGenerateOTP: {
             issuccess: false,

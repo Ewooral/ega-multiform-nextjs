@@ -4,6 +4,8 @@ import { bgColorClasses } from "@/data/stylesValues";
 import useRegisterStore from "@/store/registerStore";
 import clsx from "clsx";
 import { useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const { bgColor } = useRegisterStore();
@@ -23,12 +25,23 @@ export default function Home() {
     // <main className="flex flex-col items-center justify-between min-h-screen p-24">
     <main>
       <section className="">
-        <h1
-          // style={{background:'#bbb', color: '#000', fontSize: '23px'}}
-          className={clsx`font-normal text-[14px] text-start p-[5rem] ${bgColor}`}
+        <div
+          style={{borderBottom:"11px solid white"}}
+          // className={clsx`font-normal text-[14px] text-start p-[5rem] ${bgColor}`}
+          className={clsx` flex justify-between items-center font-normal text-[14px] text-start p-[5rem] bg-[#409eff]`}
+
         >
-          Eganow Multi-Stepper Form
-        </h1>
+         <div className="flex items-center justify-center">
+         <Image src="/ega.png" alt="img" width={50} height={50} className="mr-5"/>
+          <h1>Eganow Multi-Stepper Form</h1>
+         </div>
+
+        <div>
+        <span className="mr-5"><Link href="/login">Login</Link></span>
+        <span><Link href="/dashboard">Dashboard</Link></span>
+        </div>
+         
+        </div>
         <hr style={{ border: "1px solid #66339973" }} />
         <Stepper />
       </section>

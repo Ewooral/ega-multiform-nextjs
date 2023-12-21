@@ -21,7 +21,7 @@ type CustomErrorToasterProps = {
     
 
 
-// TODO: 1. Create a custom error toaster component
+// TODO: 1. Custom success toaster component
 export const  CustomSuccessToaster =  ({ message, show, setShow }: CustomErrorToasterProps) => {
   useEffect(() => {
     if (show) {

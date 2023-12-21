@@ -76,7 +76,9 @@ const StepperButton = ({
     setIsLoading,
     personalInfo,
     businessInfo,
-    resetStepper
+    resetStepper,
+    showToaster,
+    setShowToaster,
   } = useRegistrationStore();
 
   // ?    HANDLE PREVIOUS CLICK BUTTON
@@ -106,11 +108,12 @@ const StepperButton = ({
             if (response && !response.issuccess) {
               setSeverResponseGenerateOTP(response);
               console.log("RESPONSESSSS: ", response);
-
+              setShowToaster(true);
               setIsLoading(false);
               return;
             } else {
               setSeverResponseGenerateOTP(response);
+              setShowToaster(true);
               setCurrentStep(currentStep + 1);
             }
           } catch (err) {
@@ -130,10 +133,12 @@ const StepperButton = ({
             if (response && !response.issuccess) {
               setSeverResponseGenerateOTP(response);
               console.log("RESPONSESSSS: ", response)
+              setShowToaster(true);
               setIsLoading(false);
               return;
             } else {
               setSeverResponseGenerateOTP(response);
+              setShowToaster(true);
               setCurrentStep(currentStep + 1);
             }
           } catch (err) {
@@ -173,10 +178,12 @@ const StepperButton = ({
             if (response && !response.issuccess) {
               setSeverResponseGenerateOTP(response);
               console.log("RESPONSESSSS: ", response);
+              setShowToaster(true);
               setIsLoading(false);
               return;
             } else {
               setSeverResponseGenerateOTP(response);
+              setShowToaster(true);
                setCurrentStep(currentStep + 1);
               router.push("/dashboard")
 
@@ -212,8 +219,8 @@ const StepperButton = ({
     <div className="flex items-center justify-between w-full  text-[12px] lg:text-[15px]">
       {currentStep > 0 && (
         <button
-          style={{ border: "2px solid white" }}
-          className="bg-[#0c5d3c] px-2 py-[.2rem] lg:px-8 md:py-3 mr-5 rounded-full"
+          style={{ border: "4px solid white" }}
+          className="bg-[#409eff] px-2 py-[.2rem] lg:px-8 md:py-3 mr-5 rounded-full"
           onClick={handlePrevClick}
         >
           Previous
@@ -224,8 +231,8 @@ const StepperButton = ({
 
       {currentStep === 0 && (
         <button
-          style={{ border: "2px solid white" }}
-          className="bg-[#0c5d3c] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
+          style={{ border: "4px solid white" }}
+          className="bg-[#409eff] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
           onClick={handleNextClick}
         >
           Next
@@ -234,8 +241,8 @@ const StepperButton = ({
 
       {currentStep === 1 && (
         <button
-          style={{ border: "2px solid white" }}
-          className="bg-[#0c5d3c] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
+          style={{ border: "4px solid white" }}
+          className="bg-[#409eff] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
           onClick={handleNextClick}
         >
           Verify OTP
@@ -244,8 +251,8 @@ const StepperButton = ({
 
       {(currentStep === 2 || currentStep === 3) && (
         <button
-          style={{ border: "2px solid white" }}
-          className="bg-[#0c5d3c] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
+          style={{ border: "4px solid white" }}
+          className="bg-[#409eff] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
           onClick={handleNextClick}
         >
           Next
@@ -254,8 +261,8 @@ const StepperButton = ({
 
       {currentStep === 4 && (
         <button
-          style={{ border: "2px solid white" }}
-          className="bg-[#0c5d3c] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
+          style={{ border: "4px solid white" }}
+          className="bg-[#409eff] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
           onClick={handleNextClick}
         >
           Submit Form
@@ -265,7 +272,7 @@ const StepperButton = ({
       {currentStep === 5 && (
         <button
           style={{ border: "2px solid white" }}
-          className="bg-[#0c5d3c] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
+          className="bg-[#409eff] px-2 py-[.2rem] lg:px-8 md:py-3 rounded-full"
           onClick={handleNextClick}
         >
           Reset
