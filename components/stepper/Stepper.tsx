@@ -31,7 +31,7 @@ const Stepper = () => {
           <div className={clsx`grid w-full grid-cols-6 ${bgColor}`}>
             {/* ..............STEPPER SIDEBAR................ */}
             <div
-              className={clsx`hidden lg:block h-[100%] lg:col-span-2  border-r-2 border-[#66339973]`}
+              className={clsx`hidden lg:block h-full lg:col-span-2  border-r-2 border-[#66339973]`}
             >
               <StepperSideBar />
             </div>
@@ -45,47 +45,6 @@ const Stepper = () => {
             <div
               className={clsx`flex flex-col justify-between h-full sm:col-span-3 col-span-6 md:col-span-2 p-4 border-l-2 border-[#66339971]`}
             >
-              {/* SETTINGS */}
-
-              {/*  Option select */}
-              {/* <div className="w-full mx-auto">
-                <label
-                  className={clsx`block mb-2 text-xs font-bold tracking-wide text-white uppercase`}
-                  htmlFor="grid-state"
-                >
-                  Change background color
-                </label>
-                <div className="">
-                  <select
-                    onChange={(e) => setBgColor(e.target.value)}
-                    className={clsx`block w-full px-4 py-3 pr-8 leading-tight text-white mb-4 ${bgColor} border
-                     border-gray-300 rounded appearance-none focus:text-black focus:outline-none focus:${bgColor} focus:border-gray-500`}
-                    id="grid-state"
-                  >
-                    {bgColorClasses.map((bgColorClass, key) => {
-                      return (
-                        <option
-                          key={key}
-                          value={bgColorClass}
-                          className={clsx`bg-${bgColorClass}`}
-                        >
-                          {bgColorClass}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
-                    <svg
-                      className="w-4 h-4 fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                    </svg>
-                  </div>
-                </div>
-              </div> */}
-
               {/* <CreateWorker /> */}
               <div>
                 Already registered?{" "}

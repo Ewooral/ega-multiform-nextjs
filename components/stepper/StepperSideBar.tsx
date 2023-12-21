@@ -15,7 +15,7 @@ const StepperSideBar = () => {
             key={key}
             className="flex flex-col items-end p-2 md:mr-[3rem] mb-[-2rem]"
           >
-            <article className="flex items-center justify-center gap-8 mb-1 text-white">
+            <div className="flex items-center justify-center gap-8 mb-1 text-white">
               {/*
                * File: StepperSideBar.tsx
                * Language: TypeScript
@@ -25,14 +25,17 @@ const StepperSideBar = () => {
                * The text content is dynamically assigned from the 'title' property of the 'item' object.
                *  <................................COMMENT.........................................>
                */}
-              <p className="flex flex-col items-end p-2">
+
+               {/* THE TEXTS NEXT TO THE ICONS */}
+              <div className="flex flex-col items-end p-2">
                 <span className="font-extrabold">{item.title}</span>
                 <span className="text-[11px] text-[gray]">
                   {item.description}
                 </span>
-              </p>
-
-              <p className="flex items-baseline content-end self-end justify-center">
+              </div>
+              
+              {/* THE ICONS AND THEIR BACKGROUND COLORS AND BORDERS */}
+              <section className="flex items-baseline content-end self-end justify-center">
                 <span
                   className={`flex items-center w-12 h-12 rounded-full justify-evenly my-3 mx-auto ${
                     key < currentStep
@@ -47,17 +50,18 @@ const StepperSideBar = () => {
                     <item.imgSrc className="w-[20px] h-[20px]" />
                   )}
                 </span>
-              </p>
-            </article>
+              </section>
+            </div>
             <div>
-              {/* at the start of the moving, show the border beneath all the images 
-              except the last one, and when movement start from the first change each 
-              visited image's border color to green but when it gets to the last do nothing 
+              {/* BORDER BENEATH THE ICONS
+              at the start of the moving step, show the border beneath all the images 
+              except the last one, and in the course, change each 
+              visited image's border color to green but when it gets to the last step do nothing 
               <................................COMMENT.........................................>
               */}
 
               {key < stepHeadObj.length - 1 && (
-                <p
+                <div
                   className={`border-[2px] ${
                     currentStep === key
                       ? "border-red-500"
@@ -65,7 +69,9 @@ const StepperSideBar = () => {
                       ? "border-[#23b732]"
                       : "border-[#66339973]"
                   } flex items-center h-10 mt-[-1rem] mr-[1.4rem] text-xs font-light text-center justify-evenly`}
-                ></p>
+                >
+                  
+                </div>
               )}
             </div>
 

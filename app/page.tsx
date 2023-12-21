@@ -31,7 +31,7 @@ export default function Home() {
           className={clsx` flex justify-between items-center font-normal text-[14px] text-start p-[5rem] bg-[#409eff]`}
 
         >
-         <div className="flex items-center justify-center">
+         <div className="flex items-center justify-center ">
          <Image src="/ega.png" alt="img" width={50} height={50} className="mr-5"/>
           <h1>Eganow Multi-Stepper Form</h1>
          </div>
