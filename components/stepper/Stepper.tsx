@@ -5,6 +5,7 @@ import RenderActiveStep from "./RenderActiveStep";
 import dynamic from "next/dynamic";
 import useRegisterStore from "@/store/registerStore";
 import Link from "next/link";
+import CreateWorker from "../workers/CreateWorker";
 
 const Stepper = () => {
   /* ? The issue is related to the server-side rendering (SSR) and client-side rendering mismatch. 
@@ -21,14 +22,12 @@ const Stepper = () => {
     ssr: false,
   });
 
-  const { bgColor, setBgColor } = useRegisterStore();
-  const [show, setShow] = useState(false);
   return (
     <>
       <div className="grid grid-cols-3 grid-rows-1 gap-4">
         {/* Header */}
-        <div className={clsx`col-span-3 ${bgColor}`}>
-          <div className={clsx`grid w-full grid-cols-6 ${bgColor}`}>
+        <div className={clsx`col-span-3 bg-[#02044a]`}>
+          <div className={clsx`grid w-full grid-cols-6 bg-[#02044a]`}>
             {/* ..............STEPPER SIDEBAR................ */}
             <div
               className={clsx`hidden lg:block h-full lg:col-span-2  border-r-2 border-[#66339973]`}
@@ -45,7 +44,7 @@ const Stepper = () => {
             <div
               className={clsx`flex flex-col justify-between h-full sm:col-span-3 col-span-6 md:col-span-2 p-4 border-l-2 border-[#66339971]`}
             >
-              {/* <CreateWorker /> */}
+              <CreateWorker />
               <div>
                 Already registered?{" "}
                 <Link href="/login">

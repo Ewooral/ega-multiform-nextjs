@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import MarkEmailUnreadOutlinedIcon from "@mui/icons-material/MarkEmailUnreadOutlined";
 import { stepHeadObj } from "@/data/stepperheaderObj";
 import { StepProps } from "@/types/registrationTypes";
@@ -7,7 +7,6 @@ import useRegistrationStore from "@/store/registerStore";
 import { z } from "zod";
 import { registrationSchema } from "@/lib/StepperFormValidation";
 import ServerErrorMessage from "@/components/ServerErrorMessage";
-import {Modal} from "@/components/CustomComponents";
 
 type EmailStepType = z.infer<typeof registrationSchema>;
 
@@ -18,16 +17,9 @@ const EmailStep: React.FC<StepProps> = ({ formMethods }) => {
     trigger,
     formState: { errors },
   } = formMethods;
-  const { setEmailAddress } = useRegistrationStore();
-  const watchEmailAddress = watch("emailAddress");
 
-
-  useEffect(() => {
-    if (watchEmailAddress !== undefined) {
-      setEmailAddress(watchEmailAddress);
-      trigger("emailAddress");
-    }
-  }, [watchEmailAddress, setEmailAddress, trigger]);
+  const watchEmailAddress = watch("emailAddress", "");
+  
 
   return (
     <form className="w-full">

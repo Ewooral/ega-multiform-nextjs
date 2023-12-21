@@ -12,16 +12,7 @@ const VerifyOtpStep: React.FC<StepProps> = ({ formMethods }) => {
     trigger,
     formState: { errors },
   } = formMethods;
-  const { setOtpValue } =
-    useRegistrationStore();
-  const watchOtp = watch("otpValue");
 
-  useEffect(() => {
-    if (watchOtp !== undefined) {
-      setOtpValue(watchOtp);
-      trigger("otpValue");
-    }
-  }, [watchOtp, setOtpValue, trigger]);
 
   return (
     <form className="w-full">

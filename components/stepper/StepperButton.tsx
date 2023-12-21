@@ -56,11 +56,11 @@ const StepperButton = ({
   const customerSixDigitPINError = errors.customerSixDigitPIN;
   const businessNameError = errors.businessName;
   const businessContactPersonMobileNumberError =
-    errors.businessContactPersonMobileNumber;
+  errors.businessContactPersonMobileNumber;
   const mobileNoDialCodeError = errors.mobileNoDialCode;
   const mobileOrWebError = errors.mobileOrWeb;
   const countryCodeForFirstEganowWalletError =
-    errors.countryCodeForFirstEganowWallet;
+  errors.countryCodeForFirstEganowWallet;
 
   const lastNameError = errors.lastName;
   const mobileNumberError = errors.mobileNumber;
@@ -78,6 +78,8 @@ const StepperButton = ({
     businessInfo,
     resetStepper,
     showToaster,
+    setEmailAddress,
+    setOtpValue,
     setShowToaster,
   } = useRegistrationStore();
 
@@ -102,6 +104,7 @@ const StepperButton = ({
         // generate otp
         if (currentStep === 0) {
           try {
+            setEmailAddress(emailAddress);
             const response: serverResponseGenerateOTPS = (await generateOtpGRPC(
               emailAddress
             )) as serverResponseGenerateOTPS;
@@ -125,6 +128,7 @@ const StepperButton = ({
         //verify otp
         if (currentStep === 1) {
           try {
+            setOtpValue(otp);
             const response: serverResponseGenerateOTPS = (await verifyOtpGRPC(
               emailAddress,
               otp
